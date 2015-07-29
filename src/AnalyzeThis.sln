@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeRefactoring1", "CodeRefactoring1\CodeRefactoring1\CodeRefactoring1.csproj", "{53AC4D05-4965-47B0-BD1E-10A12F3A58E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactorings", "CodeRefactoring1\CodeRefactoring1\Refactorings.csproj", "{53AC4D05-4965-47B0-BD1E-10A12F3A58E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeRefactoring1.Vsix", "CodeRefactoring1\CodeRefactoring1.Vsix\CodeRefactoring1.Vsix.csproj", "{028B11AB-3425-4EBB-859F-737F3B324861}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyzeThis.Vsix", "CodeRefactoring1\CodeRefactoring1.Vsix\AnalyzeThis.Vsix.csproj", "{028B11AB-3425-4EBB-859F-737F3B324861}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

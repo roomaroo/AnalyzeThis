@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Composition;
 using System.Linq;
 using System.Threading;
@@ -8,14 +9,14 @@ using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Formatting;
+using Microsoft.CodeAnalysis.Rename;
+using Microsoft.CodeAnalysis.Text;
 
-namespace CodeRefactoring1
+namespace AnalyzeThis.Refactorings
 {
-    [ExportCodeRefactoringProvider(RefactoringId, LanguageNames.CSharp), Shared]
-    internal class CodeRefactoring1CodeRefactoringProvider : CodeRefactoringProvider
+    [ExportCodeRefactoringProvider(LanguageNames.CSharp, Name = nameof(IntroduceFieldCodeRefactoringProvider)), Shared]
+    internal class IntroduceFieldCodeRefactoringProvider : CodeRefactoringProvider
     {
-        public const string RefactoringId = "CodeRefactoring1";
-
         public sealed override async Task ComputeRefactoringsAsync(CodeRefactoringContext context)
         {
             var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
@@ -59,7 +60,7 @@ namespace CodeRefactoring1
             var fieldDeclaration = RoslynHelpers.CreateFieldDeclaration(RoslynHelpers.GetParameterType(parameter), fieldName);
             var newClass = oldClassWithNewCtor
                 .WithMembers(oldClassWithNewCtor.Members.Insert(0, fieldDeclaration))
-                .WithAdditionalAnnotations(Formatter.Annotation);
+                /*.WithAdditionalAnnotations(Formatter.Annotation)*/;
 
             var oldRoot = await context.Document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             var newRoot = oldRoot.ReplaceNode(oldClass, newClass);
